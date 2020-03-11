@@ -2,7 +2,7 @@
   "name": "notify-bajs",
   "version": "1.0.0",
   "description": "Notify BaJS",
-  "main": "index.js",
+  "main": "./src/index.js",
   "scripts": {
     "start": "cross-env NODE_ENV=development webpack-dev-server --config config/webpack.dev.js",
     "build": "cross-env NODE_ENV=production webpack --config config/webpack.prod.js"

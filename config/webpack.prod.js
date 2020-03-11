@@ -11,7 +11,7 @@ module.exports = merge(common, {
   output: {
     path: paths.build,
     publicPath: "./",
-    filename: "[name].[contenthash].bundle.js"
+    filename: "notify-bajs.js"
   },
   plugins: [
     /**
@@ -56,16 +56,16 @@ module.exports = merge(common, {
     // Once your build outputs multiple chunks, this option will ensure they share the webpack runtime
     // instead of having their own. This also helps with long-term caching, since the chunks will only
     // change when actual code changes, not the webpack runtime.
-    runtimeChunk: "single",
+    // runtimeChunk: "single",
     // This breaks apart commonly shared deps (react, semantic ui, etc) into one shared bundle. React, etc
     // won't change as often as the app code, so this chunk can be cached separately from app code.
     splitChunks: {
       cacheGroups: {
-        vendor: {
-          test: /[\\/]node_modules[\\/](react|react-dom|lodash)[\\/]/,
-          name: "vendors",
-          chunks: "all"
-        }
+        // vendor: {
+        //   test: /[\\/]node_modules[\\/](react|react-dom|lodash)[\\/]/,
+        //   name: "vendors",
+        //   chunks: "all"
+        // }
       }
     }
   },
