@@ -1,4 +1,6 @@
-"use strict";
+import "./notify.css";
+
+("use strict");
 const DURATION_DEFAULT = 3000;
 
 export default function NotifyBaJS(payload = {}) {
@@ -44,15 +46,26 @@ NotifyBaJS.prototype.render = function() {
   const elWrap = this.el.closest(".ba-notify-placement");
   if(elWrap) {
     if(this.options.top) elWrap.style.top = this.options.top + "px";
-    if(this.options.right) elWrap.style.right = this.options.right + "px";
     if(this.options.bottom) elWrap.style.bottom = this.options.bottom + "px";
-    if(this.options.left) elWrap.style.left = this.options.left + "px";
+
+    if(this.options.right) {
+      elWrap.style.left = "inherit";
+      elWrap.style.right = this.options.right + "px";
+    }
+
+    if(this.options.left) {
+      elWrap.style.right = "inherit";
+      elWrap.style.left = this.options.left + "px";
+    }
   }
+
+  let delay = this.options.delay ? this.options.delay : 100; 
+  delay = Number(this.options.delay) >= 100 ? this.options.delay : 100; 
 
   setTimeout(() => {
     this.el.classList.add("ba-notify--open");
     this.runHide();
-  }, 100);
+  }, delay);
 };
 
 // prettier-ignore
