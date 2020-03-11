@@ -1,6 +1,6 @@
 {
   "name": "notify-bajs",
-  "version": "1.0.0",
+  "version": "1.0.10",
   "description": "Notify BaJS",
   "main": "./src/index.js",
   "scripts": {
@@ -8,13 +8,18 @@
     "build": "cross-env NODE_ENV=production webpack --config config/webpack.prod.js"
   },
   "keywords": [
-    "webpack",
-    "webpack 4",
-    "webpack boilerplate",
-    "boilerplate",
-    "hmr"
+    "notify",
+    "notify-bajs",
+    "message",
+    "notification",
+    "alert"
   ],
-  "author": "Tania Rascia <tania@taniarascia.com>, JSDarkCode <jsdarkcode@gmail.com>",
+  "repository": "jsdarkcode/notify-bajs",
+  "author": {
+    "name": "JSDarkCode",
+    "email": "jsdarkcode@gmail.com",
+    "url": "https://js4code.com"
+  },
   "license": "MIT",
   "devDependencies": {
     "@babel/core": "^7.5.5",

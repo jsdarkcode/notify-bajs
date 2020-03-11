@@ -1,6 +1,4 @@
-import "./notify.css";
-
-("use strict");
+"use strict";
 const DURATION_DEFAULT = 3000;
 
 export default function NotifyBaJS(payload = {}) {
@@ -43,6 +41,14 @@ NotifyBaJS.prototype.render = function() {
   const elPlacement = document.querySelector(`[data-placement="${placement}"]`)
   elPlacement.insertAdjacentElement("beforeend", this.el);
 
+  const elWrap = this.el.closest(".ba-notify-placement");
+  if(elWrap) {
+    if(this.options.top) elWrap.style.top = this.options.top + "px";
+    if(this.options.right) elWrap.style.right = this.options.right + "px";
+    if(this.options.bottom) elWrap.style.bottom = this.options.bottom + "px";
+    if(this.options.left) elWrap.style.left = this.options.left + "px";
+  }
+
   setTimeout(() => {
     this.el.classList.add("ba-notify--open");
     this.runHide();
@@ -57,22 +63,22 @@ NotifyBaJS.prototype.hide = function() {
 
 // prettier-ignore
 NotifyBaJS.prototype.runHide = function() {
-  const self = this;
-  const duration = this.options.duration ? this.options.duration : DURATION_DEFAULT;
-  let count = 0;
-  let speed = 100;
-  const timer = setInterval(() => {
-    if (count > duration) {
-      if (!this.el) return;
-      this.el.classList.remove("ba-notify--open");
-      this.el.addEventListener('transitionend', () => {
-        clearInterval(timer);
-        self.destroy();
-      });
-    }
+    const self = this;
+    const duration = this.options.duration ? this.options.duration : DURATION_DEFAULT;
+    let count = 0;
+    let speed = 100;
+    const timer = setInterval(() => {
+      if (count > duration) {
+        if (!this.el) return;
+        this.el.classList.remove("ba-notify--open");
+        this.el.addEventListener('transitionend', () => {
+          clearInterval(timer);
+          self.destroy();
+        });
+      }
 
-    count += speed;
-}, speed);
+      count += speed;
+    }, speed);
 };
 
 NotifyBaJS.prototype.destroy = function() {
