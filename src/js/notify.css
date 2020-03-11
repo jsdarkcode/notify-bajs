@@ -8,6 +8,7 @@
 .ba-notify {
   opacity: 0;
   transition: 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+  max-width: 300px;
 }
 
 .ba-notify__wrap {
@@ -34,10 +35,12 @@
   margin-bottom: 4px;
   color: rgba(0, 0, 0, 0.85);
   font-size: 16px;
+  text-align: left;
 }
 
 .ba-notify__content {
   color: rgba(0, 0, 0, 0.85);
+  text-align: left;
 }
 
 /* success */

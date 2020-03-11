@@ -27,9 +27,10 @@ NotifyBaJS.prototype.render = function() {
   const title = this.options.title ? `<div class="ba-notify__title">${this.options.title}</div>` : ""; 
   const content = this.options.content ? `<div class="ba-notify__content">${this.options.content}</div>` : ""; 
   const type = this.options.type ? `ba-notify--${this.options.type}` : ""; 
+  const classContainer = this.options.classContainer ? `ba-notify--${this.options.classContainer}` : ""; 
 
   const template = `
-    <div class="ba-notify ${type}">
+    <div class="ba-notify ${type} ${classContainer}">
         <div class="ba-notify__wrap">
             ${title}
             ${content}
@@ -43,16 +44,18 @@ NotifyBaJS.prototype.render = function() {
   const elPlacement = document.querySelector(`[data-placement="${placement}"]`)
   elPlacement.insertAdjacentElement("beforeend", this.el);
 
+  // max-width
+  if(this.options.width) this.el.style.maxWidth = this.options.width + "px";
+  
+  // Margin
   const elWrap = this.el.closest(".ba-notify-placement");
   if(elWrap) {
     if(this.options.top) elWrap.style.top = this.options.top + "px";
     if(this.options.bottom) elWrap.style.bottom = this.options.bottom + "px";
-
     if(this.options.right) {
       elWrap.style.left = "inherit";
       elWrap.style.right = this.options.right + "px";
     }
-
     if(this.options.left) {
       elWrap.style.right = "inherit";
       elWrap.style.left = this.options.left + "px";
