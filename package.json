@@ -12,7 +12,8 @@
     "notify-bajs",
     "message",
     "notification",
-    "alert"
+    "alert",
+    "notify vanilla"
   ],
   "repository": "jsdarkcode/notify-bajs",
   "author": {
