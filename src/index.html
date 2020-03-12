@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+
+    <title><%= htmlWebpackPlugin.options.title %></title>
+
+    <style>
+      .wrap {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      button {
+        padding: 12px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        outline: none;
+        user-select: none;
+        margin: 5px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="wrap">
+      <button data-type="success">Success</button>
+      <button data-type="info">Info</button>
+      <button data-type="warning">Warning</button>
+      <button data-type="danger">Danger</button>
+    </div>
+
+    <div id="root"></div>
+  </body>
+</html>

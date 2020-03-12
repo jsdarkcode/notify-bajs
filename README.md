@@ -27,3 +27,4 @@ NotifyBaJS({
 - `width`: (number) - max-width css (default: 300)
 - `delay`: (number) - Delay in millisecond, before tooltip is show
 - `top`: (number) - Distance from the top of the viewport (unit: pixels)
+- `closable`: (boolean) - Whether a close (x) button is visible on top right of the modal dialog or not

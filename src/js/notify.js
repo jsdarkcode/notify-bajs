@@ -23,15 +23,18 @@ NotifyBaJS.prototype.renderPlacement = function() {
 
 // prettier-ignore
 NotifyBaJS.prototype.render = function() {
+  const self = this;
   const placement = this.options.placement ? this.options.placement : "top-right"; 
   const title = this.options.title ? `<div class="ba-notify__title">${this.options.title}</div>` : ""; 
   const content = this.options.content ? `<div class="ba-notify__content">${this.options.content}</div>` : ""; 
   const type = this.options.type ? `ba-notify--${this.options.type}` : ""; 
   const classContainer = this.options.classContainer ? `ba-notify--${this.options.classContainer}` : ""; 
-
+  const closable = this.options.closable === undefined ? true : this.options.closable; 
+  
   const template = `
     <div class="ba-notify ${type} ${classContainer}">
         <div class="ba-notify__wrap">
+            <div class="ba-notify__close"><div>&times;</div></div>
             ${title}
             ${content}
         </div>
@@ -65,6 +68,19 @@ NotifyBaJS.prototype.render = function() {
   let delay = this.options.delay ? this.options.delay : 100; 
   delay = Number(this.options.delay) >= 100 ? this.options.delay : 100; 
 
+  
+  // click close-icon
+  const elClose = this.el.querySelector(".ba-notify__close");
+  if (elClose) {
+    if(closable) {
+      elClose.addEventListener("click", () => self.hide());
+    } else {
+      const elWrap = this.el.querySelector(".ba-notify__wrap");
+      elWrap.style.paddingRight = "15px";
+      elClose.remove();
+    }
+  }
+
   setTimeout(() => {
     this.el.classList.add("ba-notify--open");
     this.runHide();
@@ -73,8 +89,12 @@ NotifyBaJS.prototype.render = function() {
 
 // prettier-ignore
 NotifyBaJS.prototype.hide = function() {
+  const self = this;
   if (!this.el) return;
   this.el.classList.remove("ba-notify--open");
+  this.el.addEventListener('transitionend', () => {
+    self.destroy();
+  });
 };
 
 // prettier-ignore

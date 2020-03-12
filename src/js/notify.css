@@ -23,6 +23,7 @@
   list-style: none;
   position: relative;
   padding: 8px 15px;
+  padding-right: 30px;
   word-wrap: break-word;
   border-radius: 4px;
   background-color: #fff;
@@ -99,4 +100,24 @@
 
 .ba-notify--open {
   opacity: 1;
+}
+
+.ba-notify__close {
+  width: 15px;
+  height: 15px;
+  font-size: 25px;
+  position: absolute;
+  top: 50%;
+  right: 5px;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+  cursor: pointer;
+  color: #c7d4da;
+}
+
+.ba-notify__close:hover {
+  color: #555;
 }

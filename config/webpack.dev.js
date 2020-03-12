@@ -1,7 +1,7 @@
-const paths = require('./paths')
-const webpack = require('webpack')
-const merge = require('webpack-merge')
-const common = require('./webpack.common.js')
+const paths = require("./paths");
+const webpack = require("webpack");
+const merge = require("webpack-merge");
+const common = require("./webpack.common.js");
 
 module.exports = merge(common, {
   /**
@@ -9,14 +9,15 @@ module.exports = merge(common, {
    *
    * Set the mode to development or production.
    */
-  mode: 'development',
+  mode: "development",
 
   /**
    * Devtool
    *
    * Control how source maps are generated.
    */
-  devtool: 'inline-source-map',
+  devtool: "inline-source-map",
+  entry: [paths.src + "/demo.js"],
 
   /**
    * DevServer
@@ -29,7 +30,7 @@ module.exports = merge(common, {
     open: true,
     compress: true,
     hot: true,
-    port: 8080,
+    port: 8080
   },
 
   plugins: [
@@ -38,6 +39,6 @@ module.exports = merge(common, {
      *
      * Only update what has changed.
      */
-    new webpack.HotModuleReplacementPlugin(),
-  ],
-})
+    new webpack.HotModuleReplacementPlugin()
+  ]
+});

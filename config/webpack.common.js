@@ -9,7 +9,6 @@ module.exports = {
    *
    * The first place Webpack looks to start building the bundle.
    */
-  entry: [paths.src + "/index.js"],
 
   /**
    * Output
@@ -55,8 +54,7 @@ module.exports = {
      */
     new HtmlWebpackPlugin({
       title: "Webpack Boilerplate",
-      favicon: paths.src + "/images/favicon.png",
-      template: paths.src + "/template.html", // template file
+      template: paths.src + "/index.html", // template file
       filename: "index.html" // output file
     })
   ],
