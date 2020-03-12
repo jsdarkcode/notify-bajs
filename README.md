@@ -22,6 +22,7 @@ NotifyBaJS({
 
 - `placement`: (string) - Position of notify, can be one of `top-left` `top-right` `bottom-left` `bottom-right` (default: `top-right`)
 - `classContainer`: (string) - Customized CSS class
+- `type`: (string) - `success` `info` `warning` `danger`
 - `duration`: (number) - Time in millisecond before notify is closed (default: 3000)
 - `width`: (number) - max-width css (default: 300)
 - `delay`: (number) - Delay in millisecond, before tooltip is show
